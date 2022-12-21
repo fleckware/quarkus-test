@@ -2,7 +2,7 @@ plugins {
     id 'io.quarkus'
 }
 
-description = 'Service 3'
+description = 'Service 4'
 version = '1.0.0'
 
 dependencies {
@@ -10,7 +10,8 @@ dependencies {
 
     implementation 'org.eclipse.microprofile.config:microprofile-config-api'
     implementation 'io.quarkus:quarkus-arc'
-    implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-resteasy-reactive'
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
     implementation 'io.smallrye.config:smallrye-config'
     runtimeOnly 'io.quarkus:quarkus-config-yaml'
 }

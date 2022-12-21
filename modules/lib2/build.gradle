@@ -2,10 +2,11 @@ plugins {
     id 'java-library'
 }
 
-description = 'Lib 1'
+description = 'Lib 2'
 version = '1.0.0'
 
 dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'jakarta.enterprise:jakarta.enterprise.cdi-api'
     implementation 'jakarta.ws.rs:jakarta.ws.rs-api'
     implementation 'org.eclipse.microprofile.config:microprofile-config-api'

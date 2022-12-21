@@ -1,4 +1,7 @@
 quarkus:
+  rest-client:
+    streamer:
+      url: localhost:8081/service4
   http:
     port: 8080
 
