@@ -15,12 +15,6 @@ import my.project.lib2.dto.ResponseDTO;
 @Path("test")
 @RegisterRestClient(configKey = "streamer")
 public interface TalkToService4 {
-    
-    @GET
-    @Path("large")
-    @Produces(RestMediaType.APPLICATION_STREAM_JSON)
-    @RestStreamElementType(MediaType.APPLICATION_JSON)
-    Multi<ResponseDTO> largeStream();
 
     @GET
     @Path("fast")

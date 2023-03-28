@@ -26,37 +26,23 @@ public class Service4Resource {
     Handler1 handler;
 
     @GET
-    @Path("large")
-    @Produces(RestMediaType.APPLICATION_STREAM_JSON)
-    @RestStreamElementType(MediaType.APPLICATION_JSON)
-    @Blocking
-    public Multi<ResponseDTO> value() {
-        
-        List<UUID> ids = new ArrayList<>(5);
-        for (int i = 0; i < 5; i++) {
-            ids.add(UUID.randomUUID());
-        }
-
-        return Multi.createFrom().items(ids.stream()).onItem().transform(id -> handler.getLargeDTO(id)).onOverflow().buffer(81920);
-    }
-
-    @GET
     @Path("fast")
     @Produces(RestMediaType.APPLICATION_STREAM_JSON)
     @RestStreamElementType(MediaType.APPLICATION_JSON)
     @Blocking
     public Multi<ResponseDTO> anotherValue() {
 
-        List<UUID> ids = new ArrayList<>(5000);
-        for (int i = 0; i < 5000; i++) {
-            ids.add(UUID.randomUUID());
-        }
-        
-        // 50 millis seems to do the trick here, might take one retry
-        // final Multi<Long> ticks = Multi.createFrom().ticks().every(Duration.ofMillis(50)).onOverflow().drop();
-        // final Multi<ResponseDTO> multi = Multi.createFrom().items(ids.stream()).onItem().transform(id -> handler.getAverageDTO(id));
-        // return Multi.createBy().combining().streams(ticks, multi).using((x, item) -> item);
+        return Multi.createFrom().emitter(em -> {
 
-        return Multi.createFrom().items(ids.stream()).onItem().transform(id -> handler.getAverageDTO(id)).onOverflow().buffer(81920);
+            for (int i = 0; i < 3600; i++) {
+                final UUID id = UUID.randomUUID();
+
+                final ResponseDTO response = handler.getAverageDTO(id);
+
+                for (int j = 0; j < 5000; j++) {
+                    em.emit(response);
+                }
+            }
+        });
     }
 }

@@ -19,21 +19,6 @@ public class Service3Resource {
     TalkToService4 streamer;
 
     @GET
-    @Path("large")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String streamLarge() throws InterruptedException {
-        
-        final CopyOnWriteArrayList<ResponseDTO> collected = new CopyOnWriteArrayList<>();
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        
-        streamer.largeStream().onOverflow().buffer().onCompletion().invoke(completionLatch::countDown).subscribe().with(collected::add);
-
-        completionLatch.await();
-        
-        return "Heyyyy the large response worked this time!";
-    }
-
-    @GET
     @Path("fast")
     @Produces(MediaType.TEXT_PLAIN)
     public String streamFast() throws InterruptedException {
@@ -45,7 +30,7 @@ public class Service3Resource {
 
         completionLatch.await();
         
-        return "Heyyyy the fast response worked this time!";
+        return "The fast stream completed successfully";
     }
 
 }

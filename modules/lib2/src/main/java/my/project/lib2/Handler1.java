@@ -20,7 +20,7 @@ public class Handler1 {
         "Dave Bautista", "Tom Hiddleston", "Karen Gillan", "Paul Bettany", "Aaron Taylor-Johnson", "Idris Elba"
     );
 
-    private String mapString = "OMG, SEBASTIAN STAN, man you're looking good man oh man let me tell you something. You ever seen a guy this handsome walking in the streets, he's gonna get arrested because he's killing all the ladys. Look at that. Pow pow pow pow pow";
+    private String mapString = "SEBASTIAN STAN, man you're looking good man oh man let me tell you something. You ever seen a guy this handsome walking in the streets, he's gonna get arrested because he's killing all the ladys. Look at that. Pow pow pow pow pow";
     
     private String connectionsString = "We come to this place for magic. We come to AMC theaters to laugh, to cry, to care, because we need that--all of us. That indescribable feeling we get when the lights begin to dim, and we go somewhere we've never been before. Not just entertained but somehow reborn together. Dazzling images on a huge silver screen. Sound that I can feel. Somehow, heartbreak feels good in a place like this. Our heroes feel like the best part of us. And stories feel perfect and powerful. Because here... they are.";
 
