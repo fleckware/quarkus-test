@@ -3,9 +3,9 @@ package my.project.service5;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.ManagedBean;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.annotation.ManagedBean;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
 @ApplicationPath("service5")
 @ManagedBean
